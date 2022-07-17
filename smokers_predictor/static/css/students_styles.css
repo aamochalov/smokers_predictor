@@ -1,0 +1,82 @@
+body {
+    background-color: #E9FFFF;
+    font-weight: 300;
+}
+
+table {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    border-radius: 10px;
+    border-spacing: 0;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    margin-top: 4%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+th, td {
+    font-weight: 300;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+    padding: 7px 15px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+}
+
+th { background: #BCEBDD; font-weight: 400;}
+
+td { background: #F8E391;}
+
+th:first-child, td:first-child { text-align: left; }
+
+th:first-child { border-top-left-radius: 10px; }
+
+tr:last-child td:first-child { border-radius: 0 0 0 10px; }
+
+tr:last-child td:last-child { border-radius: 0 0 10px 0; }
+
+tr td:last-child { border-right: none; }
+
+#sub_but {
+    position: absolute;
+    width: 70px;
+    height: 31px;
+    left: 50%;
+    margin-left: -30px;
+    margin-top: 10px;
+    background: #BCEBDD;
+    border-width: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#sub_but:hover {
+    background-color: #BCEB9D;
+}
+
+#logout_button {
+    position: absolute;
+    width: 70px;
+    height: 31px;
+    left: 95%;
+    margin-left: -35px;
+    margin-top: 10px;
+    background:  #F8173E;
+    border-width: 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#logout_button:hover {
+    background-color:  #B00000;
+}
+
+input {
+    width: 100%;
+}

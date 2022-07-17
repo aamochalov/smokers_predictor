@@ -1,0 +1,102 @@
+body {
+    background-color: #E9FFFF;
+    font-weight: 300;
+}
+
+#heading {
+    margin-bottom: 25px;
+    width: 426px;
+    height: auto;
+    font-size: 24px;
+    top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.question {
+    position: relative;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 466px;
+    height: 117px;
+    background-color: white;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #D2D2D2;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.three_answers {height: 144px}
+.four_answers {height: 171px}
+.five_answers {height: 198px}
+
+.question_text {
+    position: absolute;
+    left: 20px;
+    top: 16px;
+    width: 426px;
+    height: 16px;
+}
+
+.answer_radiobutton {
+    position: absolute;
+    left: 17px;
+    width: 12px;
+    height: 12px;
+}
+
+.rb1 {top: 51px}
+.rb2 {top: 78px}
+.rb3 {top: 105px}
+.rb4 {top: 132px}
+.rb5 {top: 159px}
+
+.answer_text {
+    left: 42px;
+    height: 14px;
+    position: absolute;
+}
+
+.t1 {top: 50px}
+.t2 {top: 77px}
+.t3 {top: 104px}
+.t4 {top: 131px}
+.t5 {top: 158px}
+
+.l { left: 20px; height: 21px; font-size: 14px }
+
+#fio1 { width: 240px; }
+
+#fio1, cl_num1, cl_let1 {border-width: 0;}
+
+#l1 {margin-bottom: 10px;}
+
+.question_text span {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#sub_but {
+    position: relative;
+    width: 90px;
+    height: 36px;
+    margin: auto;
+    display: block;
+    margin-top: 7px;
+    background-color: #00b5b5;
+    border-width: 0;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+#sub_but:hover {
+    background-color: #00a5a5;
+}
+
+.additional {
+    display: none;
+}

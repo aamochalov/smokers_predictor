@@ -1,0 +1,6 @@
+*.vscode
+__pycache__/
+venv/
+migrations/
+db.sqlite3
+secret_settings.py

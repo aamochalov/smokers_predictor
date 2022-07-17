@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Предрасположенность к курению</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="heading" class="question">Тест на предрасположенность<br>к курению сигарет</h1>
+    <form name="Answers" method="post" action="test_result" enctype="multipart/form-data" id="form1">
+        {% csrf_token %}
+        {% if request.user.is_authenticated %}
+            <div class="question three_answers">
+                <div class="question_text"><span>Личные данные</span></div>
+                <div id="l1" class="answer_radiobutton t1 l">
+                    <input name="fio" id="fio1" required autofocus placeholder="Фамилия Имя Отчество">
+                </div>
+                <div class="answer_radiobutton t2 l">
+                    <select name="cl_num" id="cl_num1" form="form1" required>
+                        <option disabled>Номер класса</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                    </select>
+                </div>
+                <div class="answer_radiobutton t3 l">
+                    <select name="cl_let" id="cl_let1" form="form1" required>
+                        <option disabled>Буква класса</option>
+                        <option value="А">А</option>
+                        <option value="Б">Б</option>
+                        <option value="В">В</option>
+                        <option value="Г">Г</option>
+                        <option value="Д">Д</option>
+                        <option value="Е">Е</option>
+                        <option value="Ж">Ж</option>
+                        <option value="З">З</option>
+                        <option value="И">И</option>
+                        <option value="К">К</option>
+                        <option value="Л">Л</option>
+                        <option value="М">М</option>
+                        <option value="Н">Н</option>
+                        <option value="О">О</option>
+                        <option value="П">П</option>
+                        <option value="Р">Р</option>
+                        <option value="С">С</option>
+                        <option value="Т">Т</option>
+                        <option value="У">У</option>
+                        <option value="Ф">Ф</option>
+                        <option value="Х">Х</option>
+                        <option value="Ц">Ц</option>
+                        <option value="Ч">Ч</option>
+                        <option value="Ш">Ш</option>
+                        <option value="Ы">Ы</option>
+                        <option value="Э">Э</option>
+                        <option value="Ю">Ю</option>
+                        <option value="Я">Я</option>
+                    </select>
+                </div>
+            </div>
+        {% endif %}
+        <div class="question three_answers">
+            <div class="question_text"><span>1) Укажите пол</span></div>
+            <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q1" name="q1" value="1"></div>
+            <div class="answer_text t1"><label for="rb1_q1"><span>Мужской</span></label></div>
+            <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q1" name="q1" value="2"></div>
+            <div class="answer_text t2"><label for="rb2_q1"><span>Женский</span></label></div>
+            <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q1" name="q1" value="0" checked></div>
+            <div class="answer_text t3"><label for="rb3_q1"><span>Пропустить</span></label></div>
+        </div>
+        <div class="question three_answers">
+            <div class="question_text"><span>2) Вы воспитывались в полной семье?</span></div>
+            <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q2" name="q2" value="1"></div>
+            <div class="answer_text t1"><label for="rb1_q2"><span>Да</span></label></div>
+            <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q2" name="q2" value="2"></div>
+            <div class="answer_text t2"><label for="rb2_q2"><span>Нет</span></label></div>
+            <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q2" name="q2" value="0" checked></div>
+            <div class="answer_text t3"><label for="rb3_q2"><span>Пропустить</span></label></div>
+        </div>
+        <div class="question three_answers">
+            <div class="question_text"><span>3) Есть ли у вас брат или сестра?</span></div>
+            <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q3" name="q3" value="1"></div>
+            <div class="answer_text t1"><label for="rb1_q3"><span>Да</span></label></div>
+            <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q3" name="q3" value="2"></div>
+            <div class="answer_text t2"><label for="rb2_q3"><span>Нет</span></label></div>
+            <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q3" name="q3" value="0" checked></div>
+            <div class="answer_text t3"><label for="rb3_q3"><span>Пропустить</span></label></div>
+        </div>
+        <div class="question three_answers">
+            <div class="question_text"><span>4) Курит ли кто-то из ваших близких родственников?</span></div>
+            <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q4" name="q4" value="1"></div>
+            <div class="answer_text t1"><label for="rb1_q4"><span>Да</span></label></div>
+            <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q4" name="q4" value="2"></div>
+            <div class="answer_text t2"><label for="rb2_q4"><span>Нет</span></label></div>
+            <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q4" name="q4" value="0" checked></div>
+            <div class="answer_text t3"><label for="rb3_q4"><span>Пропустить</span></label></div>
+        </div>
+        <div class="question four_answers">
+            <div class="question_text"><span>5)	Как вы оцениваете ваше финансовое положение?</span></div>
+            <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q5" name="q5" value="1"></div>
+            <div class="answer_text t1"><label for="rb1_q5"><span>Низкий достаток</span></label></div>
+            <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q5" name="q5" value="2"></div>
+            <div class="answer_text t2"><label for="rb2_q5"><span>Средний достаток</span></label></div>
+            <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q5" name="q5" value="3"></div>
+            <div class="answer_text t3"><label for="rb3_q5"><span>Высокий достаток</span></label></div>
+            <div class="answer_radiobutton rb4"><input type="radio" id="rb4_q5" name="q5" value="0" checked></div>
+            <div class="answer_text t4"><label for="rb4_q5"><span>Пропустить</span></label></div>
+        </div>
+        <div class="question three_answers">
+            <div class="question_text"><span>6)	Занимаетесь ли вы спортом на регулярной основе?</span></div>
+            <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q6" name="q6" value="1"></div>
+            <div class="answer_text t1"><label for="rb1_q6"><span>Да</span></label></div>
+            <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q6" name="q6" value="2"></div>
+            <div class="answer_text t2"><label for="rb2_q6"><span>Нет</span></label></div>
+            <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q6" name="q6" value="0" checked></div>
+            <div class="answer_text t3"><label for="rb3_q6"><span>Пропустить</span></label></div>
+        </div>
+        <div class="question four_answers">
+            <div class="question_text"><span>7) Как часто вы попадаете в стрессовые ситуации?</span></div>
+            <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q7" name="q7" value="1"></div>
+            <div class="answer_text t1"><label for="rb1_q7"><span>Редко</span></label></div>
+            <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q7" name="q7" value="2"></div>
+            <div class="answer_text t2"><label for="rb2_q7"><span>Иногда</span></label></div>
+            <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q7" name="q7" value="3"></div>
+            <div class="answer_text t3"><label for="rb3_q7"><span>Часто</span></label></div>
+            <div class="answer_radiobutton rb4"><input type="radio" id="rb4_q7" name="q7" value="0" checked></div>
+            <div class="answer_text t4"><label for="rb4_q7"><span>Пропустить</span></label></div>
+        </div>
+        <div class="question five_answers">
+            <div class="question_text"><span>8) Какой у вас тип темперамента?</span></div>
+            <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q8" name="q8" value="1"></div>
+            <div class="answer_text t1"><label for="rb1_q8"><span>Сангвиник (энергичный, общительный, бодрый)</span></label></div>
+            <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q8" name="q8" value="2"></div>
+            <div class="answer_text t2"><label for="rb2_q8"><span>Меланхолик (высокочувствительный, легкоранимый)</span></label></div>
+            <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q8" name="q8" value="3"></div>
+            <div class="answer_text t3"><label for="rb3_q8"><span>Флегматик (спокойный, со стабильным настроением)</span></label></div>
+            <div class="answer_radiobutton rb4"><input type="radio" id="rb4_q8" name="q8" value="4"></div>
+            <div class="answer_text t4"><label for="rb4_q8"><span>Холерик (вспыльчивый, порывистый, энергичный)</span></label></div>
+            <div class="answer_radiobutton rb5"><input type="radio" id="rb5_q8" name="q8" value="0" checked></div>
+            <div class="answer_text t5"><label for="rb5_q8"><span>Пропустить</span></label></div>
+        </div>
+        {% if not request.user.is_authenticated %}
+            <div class="question three_answers">
+                <div class="question_text"><span>9)	Употребляете ли вы алкоголь?</span></div>
+                <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q9" name="q9" value="1"></div>
+                <div class="answer_text t1"><label for="rb1_q9"><span>Да</span></label></div>
+                <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q9" name="q9" value="2"></div>
+                <div class="answer_text t2"><label for="rb2_q9"><span>Нет</span></label></div>
+                <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q9" name="q9" value="0" checked></div>
+                <div class="answer_text t3"><label for="rb3_q9"><span>Пропустить</span></label></div>
+            </div>
+            <div class="question four_answers">
+                <div class="question_text"><span>10) Укажите ваш уровень образования</span></div>
+                <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q10" name="q10" value="1"></div>
+                <div class="answer_text t1"><label for="rb1_q10"><span>Высшее, неоконченное высшее, студент ВУЗа</span></label></div>
+                <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q10" name="q10" value="2"></div>
+                <div class="answer_text t2"><label for="rb2_q10"><span>Среднее специальное</span></label></div>
+                <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q10" name="q10" value="3"></div>
+                <div class="answer_text t3"><label for="rb3_q10"><span>Среднее</span></label></div>
+                <div class="answer_radiobutton rb4"><input type="radio" id="rb4_q10" name="q10" value="0" checked></div>
+                <div class="answer_text t4"><label for="rb4_q10"><span>Пропустить</span></label></div>
+            </div>
+        {% else %}
+            <div class="additional question three_answers">
+                <div class="question_text"><span>9)	Употребляете ли вы алкоголь?</span></div>
+                <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q9" name="q9" value="1"></div>
+                <div class="answer_text t1"><label for="rb1_q9"><span>Да</span></label></div>
+                <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q9" name="q9" value="2"></div>
+                <div class="answer_text t2"><label for="rb2_q9"><span>Нет</span></label></div>
+                <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q9" name="q9" value="0" checked></div>
+                <div class="answer_text t3"><label for="rb3_q9"><span>Пропустить</span></label></div>
+            </div>
+            <div class="additional question four_answers">
+                <div class="question_text"><span>10) Укажите ваш уровень образования</span></div>
+                <div class="answer_radiobutton rb1"><input type="radio" id="rb1_q10" name="q10" value="1"></div>
+                <div class="answer_text t1"><label for="rb1_q10"><span>Высшее, неоконченное высшее, студент ВУЗа</span></label></div>
+                <div class="answer_radiobutton rb2"><input type="radio" id="rb2_q10" name="q10" value="2"></div>
+                <div class="answer_text t2"><label for="rb2_q10"><span>Среднее специальное</span></label></div>
+                <div class="answer_radiobutton rb3"><input type="radio" id="rb3_q10" name="q10" value="3"></div>
+                <div class="answer_text t3"><label for="rb3_q10"><span>Среднее</span></label></div>
+                <div class="answer_radiobutton rb4"><input type="radio" id="rb4_q10" name="q10" value="0" checked></div>
+                <div class="answer_text t4"><label for="rb4_q10"><span>Пропустить</span></label></div>
+            </div>
+        {% endif %}
+        <input type="submit" id="sub_but" value="Отправить">
+    </form>
+</body>
+</html>

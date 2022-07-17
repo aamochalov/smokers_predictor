@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица с результатами теста</title>
+    <link rel="stylesheet" type="text/css" href="{% static "css/students_styles.css" %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form action="logout/" method="POST">
+        <input id="logout_button" type="submit" value="Выйти">
+    </form>
+    <form action="test" method="GET">
+        <input id="sub_but" type="submit" value="+">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Номер класса</th>
+                <th>Буква класса</th>
+                <th>Дата анкетирования</th>
+                <th>Уровень предрасположенности</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <form action="students" method="GET" id="filter_form">
+                    <td>
+                        {{ form.fio }}
+                    </td>
+                    <td>
+                        {{ form.cl_num }}
+                    </td>
+                    <td>
+                        {{ form.cl_let }}
+                    </td>
+                    <td>
+                        {{ form.date_sort}}
+                    </td>
+                    <td>
+                        <input id="filter_button" type="submit" value="Фильтровать">
+                    </td>
+                </form>
+            </tr>
+            {% for line in data %}
+                <tr>
+                    {% for cell in line %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
